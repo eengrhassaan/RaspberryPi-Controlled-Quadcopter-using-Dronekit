@@ -16,6 +16,7 @@
 
 The purpose of this project is to design an autonomous drone to detect the dusted/rusted PV cell in a solar park that contains thousands of PV panels. And send the detected panel issue to the server/ control room that monitors the performance of PV cell based on the output power. And if needed the automated cleaning solution will be triggered that will clean the specific PV cell
 
+
 ## Components Uses
 * **RaspberryPi 4 B+**
 * **PixHawk Flight Controller with external GPS and builtin compass**
@@ -27,7 +28,9 @@ The purpose of this project is to design an autonomous drone to detect the duste
 
 
 ## Project Architecture
-The project Architecture contains 5 files
+![Drone Architecture](https://github.com/eengrhassaan/RaspberryPi-Controlled-Quadcopter-using-Dronekit/blob/master/img/Drone%20Architecture.png?raw=true)
+
+This project repo contains 5 files
 
 * **dronePanel.py**
 * **droneControl.py** (helper class that contains function to talk to Flight Controller to control the drone using [DroneKit](https://dronekit-python.readthedocs.io/en/latest/) APIs)
@@ -36,3 +39,6 @@ The project Architecture contains 5 files
 * **model.tflite** (Trained model based on the research paper:  and converted to tflite for raspberry pi)
 
 ## RPi UI and Conrols
+RaspberryPi control UI using TKinter running on RPi.
+
+![RPi UI of APP](https://github.com/eengrhassaan/RaspberryPi-Controlled-Quadcopter-using-Dronekit/blob/master/img/RPI%20UI%20Control.png?raw=true)
