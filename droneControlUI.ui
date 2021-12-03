@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface version="1.0">
+  <object class="tk.LabelFrame" id="pv_Panel_Detection_Control_Panel">
+    <property name="background">#e4e4e4</property>
+    <property name="height">630</property>
+    <property name="text" translatable="yes">PV Panel Detection Control Panel</property>
+    <property name="width">600</property>
+    <layout manager="pack">
+      <property name="propagate">True</property>
+      <property name="side">top</property>
+    </layout>
+    <child>
+      <object class="tk.Label" id="camControlLabel">
+        <property name="background">#000000</property>
+        <property name="cursor">arrow</property>
+        <property name="font">{Arial} 12 {bold underline}</property>
+        <property name="foreground">#ffffff</property>
+        <property name="text" translatable="yes">Camera Gimbal Control</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">30</property>
+          <property name="width">250</property>
+          <property name="x">15</property>
+          <property name="y">280</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Scale" id="setGimbalUpDown">
+        <property name="background">#ffffff</property>
+        <property name="cursor">arrow</property>
+        <property name="foreground">#006f09</property>
+        <property name="from_">0</property>
+        <property name="label" translatable="yes">Up Down Control</property>
+        <property name="length">180</property>
+        <property name="orient">horizontal</property>
+        <property name="relief">raised</property>
+        <property name="resolution">1</property>
+        <property name="showvalue">true</property>
+        <property name="sliderrelief">raised</property>
+        <property name="state">normal</property>
+        <property name="tickinterval">30</property>
+        <property name="to">180</property>
+        <bind sequence="&lt;1&gt;" handler="setCameraGimbalUpDown" add="" />
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">80</property>
+          <property name="width">250</property>
+          <property name="x">15</property>
+          <property name="y">320</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Scale" id="setGimbalLeftRight">
+        <property name="activebackground">#ffffff</property>
+        <property name="background">#ffffff</property>
+        <property name="digits">0</property>
+        <property name="foreground">#006f09</property>
+        <property name="from_">0</property>
+        <property name="label" translatable="yes">Left Right Control</property>
+        <property name="length">180</property>
+        <property name="orient">horizontal</property>
+        <property name="resolution">1</property>
+        <property name="showvalue">true</property>
+        <property name="state">normal</property>
+        <property name="tickinterval">30</property>
+        <property name="to">180</property>
+        <bind sequence="&lt;1&gt;" handler="setCameraGimbalLeftRight" add="" />
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">80</property>
+          <property name="width">250</property>
+          <property name="x">15</property>
+          <property name="y">420</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Text" id="droneInfo">
+        <property name="height">10</property>
+        <property name="state">disabled</property>
+        <property name="text" translatable="yes">Drone information:</property>
+        <property name="width">50</property>
+        <property name="wrap">word</property>
+        <layout manager="place">
+          <property name="height">250</property>
+          <property name="relheight">0.0</property>
+          <property name="width">300</property>
+          <property name="x">280</property>
+          <property name="y">10</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Label" id="droneControl">
+        <property name="background">#000000</property>
+        <property name="font">{Arial} 12 {bold underline}</property>
+        <property name="foreground">#ffffff</property>
+        <property name="text" translatable="yes">Drone Control Panel</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">30</property>
+          <property name="width">300</property>
+          <property name="x">280</property>
+          <property name="y">280</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="connectFC">
+        <property name="command">connectToFlightController</property>
+        <property name="font">{Arial} 10 {bold}</property>
+        <property name="text" translatable="yes">Connect FC</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">35</property>
+          <property name="width">140</property>
+          <property name="x">280</property>
+          <property name="y">320</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="initializeDrone">
+        <property name="command">initializeDrone</property>
+        <property name="font">{Arial} 10 {bold}</property>
+        <property name="state">disabled</property>
+        <property name="text" translatable="yes">Initialize Drone</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">35</property>
+          <property name="width">140</property>
+          <property name="x">440</property>
+          <property name="y">320</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="armDrone">
+        <property name="command">armDrone</property>
+        <property name="font">{Arial} 10 {bold}</property>
+        <property name="state">disabled</property>
+        <property name="takefocus">false</property>
+        <property name="text" translatable="yes">Arm Drone</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">35</property>
+          <property name="width">140</property>
+          <property name="x">440</property>
+          <property name="y">365</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="getInfo">
+        <property name="command">getDroneInfo</property>
+        <property name="font">{Arial} 10 {bold}</property>
+        <property name="state">disabled</property>
+        <property name="text" translatable="yes">Get Drone Info</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">35</property>
+          <property name="width">140</property>
+          <property name="x">280</property>
+          <property name="y">365</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Spinbox" id="altValue">
+        <property name="font">{Arial} 11 {bold}</property>
+        <property name="from_">1</property>
+        <property name="increment">1</property>
+        <property name="readonlybackground">#f8f8f8</property>
+        <property name="state">normal</property>
+        <property name="to">3</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">35</property>
+          <property name="width">35</property>
+          <property name="x">280</property>
+          <property name="y">465</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="takeOff">
+        <property name="command">droneTakeOff</property>
+        <property name="font">{Arial} 10 {bold}</property>
+        <property name="state">disabled</property>
+        <property name="text" translatable="yes">TakeOff!</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">35</property>
+          <property name="width">95</property>
+          <property name="x">325</property>
+          <property name="y">465</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="getGPSinfo">
+        <property name="command">getGPSinfo</property>
+        <property name="font">{Arial} 10 {bold}</property>
+        <property name="state">disabled</property>
+        <property name="text" translatable="yes">Get GPS info</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">35</property>
+          <property name="width">140</property>
+          <property name="x">280</property>
+          <property name="y">420</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="rTL">
+        <property name="command">returnToLunch</property>
+        <property name="default">disabled</property>
+        <property name="font">{Arial} 10 {bold}</property>
+        <property name="state">disabled</property>
+        <property name="text" translatable="yes">Return to Launch</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">35</property>
+          <property name="width">140</property>
+          <property name="x">440</property>
+          <property name="y">420</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="land">
+        <property name="command">droneLand</property>
+        <property name="default">disabled</property>
+        <property name="font">{Arial} 10 {bold}</property>
+        <property name="state">disabled</property>
+        <property name="text" translatable="yes">Land</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">35</property>
+          <property name="width">140</property>
+          <property name="x">440</property>
+          <property name="y">465</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="startDetection">
+        <property name="command">startDustDetectionModel</property>
+        <property name="font">{Arial} 10 {bold}</property>
+        <property name="state">active</property>
+        <property name="text" translatable="yes">Start PV Panel Dust Detection</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">35</property>
+          <property name="width">565</property>
+          <property name="x">15</property>
+          <property name="y">520</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Canvas" id="pvImageViewer">
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">250</property>
+          <property name="width">250</property>
+          <property name="x">15</property>
+          <property name="y">10</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="imageViewer">
+        <property name="text" translatable="yes">Image Viewer</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">250</property>
+          <property name="width">250</property>
+          <property name="x">15</property>
+          <property name="y">10</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="fcState">
+        <property name="background">#ff1414</property>
+        <property name="font">{Arial} 12 {bold}</property>
+        <property name="foreground">#fff</property>
+        <property name="padding">5</property>
+        <property name="text" translatable="yes">Flight Controller State: Disconnected</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">35</property>
+          <property name="width">565</property>
+          <property name="x">15</property>
+          <property name="y">570</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+</interface>
