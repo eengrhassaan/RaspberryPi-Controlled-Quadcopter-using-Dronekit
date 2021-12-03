@@ -34,7 +34,7 @@ This project repo contains 5 files
 
 * **dronePanel.py**
 * **droneControl.py** (helper class that contains function to talk to Flight Controller to control the drone using [DroneKit](https://dronekit-python.readthedocs.io/en/latest/) APIs)
-* **dronControlUI.ui** (UI design/layout file created using [PyGubu Desinger](https://github.com/alejandroautalan/pygubu-designer), that is very helpful tool in designing UI of python project with just drag and drop and then you can easily render it with Tkinter library and bind the button and view port accordinly)
+* **dronControlUI.ui** (UI design/layout file created using [PyGubu Desinger](https://github.com/alejandroautalan/pygubu-designer), that is very helpful tool in designing UI of python project with just drag and drop and then you can easily render it with Tkinter library and bind the button and view port accordingly)
 * **pvPanelDustDetection.py** (another helper class that contains the function to detect the dusted PV panel )
 * **model.tflite** (Trained model based on the research paper:  and converted to tflite for raspberry pi)
 
